@@ -1,0 +1,102 @@
+:root {
+  --color-subject: #4A90D9;
+  --color-predicate: #E05C5C;
+  --color-object: #27AE60;
+  --color-complement: #8E44AD;
+  --color-attributive: #F39C12;
+  --color-adverbial: #16A085;
+  --color-parenthetical: #7F8C8D;
+  --color-conjunction: #95A5A6;
+  --color-infinitive: #D35400;
+  --color-participial: #1ABC9C;
+}
+
+.editor-wrapper {
+  position: relative;
+  min-height: 200px;
+  overflow-y: auto;
+}
+
+.editor-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: transparent;
+  color: inherit;
+  caret-color: #1e293b;
+  outline: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
+  line-height: 1.8;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 1rem;
+  border: none;
+  resize: none;
+}
+
+.dark .editor-input {
+  caret-color: #e2e8f0;
+}
+
+.editor-input::placeholder {
+  color: #94a3b8;
+}
+
+.dark .editor-input::placeholder {
+  color: #475569;
+}
+
+.editor-highlight {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.8;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 1rem;
+  color: #1e293b;
+  min-height: 200px;
+}
+
+.dark .editor-highlight {
+  color: #e2e8f0;
+}
+
+.editor-highlight span {
+  pointer-events: none;
+  border-radius: 2px;
+  padding: 0px 1px;
+  transition: filter 0.1s;
+}
+
+.editor-highlight span:hover {
+  filter: brightness(0.85);
+}
+
+.grammar-error {
+  text-decoration: underline wavy #ef4444;
+  text-underline-offset: 3px;
+}
+
+.style-error {
+  text-decoration: underline wavy #f59e0b;
+  text-underline-offset: 3px;
+}
+
+.grammar-tooltip {
+  animation: tooltipFadeIn 0.15s ease-out;
+}
+
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
