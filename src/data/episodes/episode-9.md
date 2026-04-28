@@ -1,12 +1,12 @@
 ---
-title: 国际工程里的那些词
+title: 国际工程语言应用备考
 date: 2026-04-29
 episode: 9
 tags: [国际工程, 合同英语, 词根词缀, 跨文化交际, 留学生活]
-summary: 覆盖一带一路背景下的国际工程核心词汇：合同术语（force majeure、GCC、lump sum、tender security、letter of intent）、专业英语分类（EST/ESP）、跨文化概念（culture shock、iceberg model），以及留学生视角的生活例子。
+summary: 今日份速通
 ---
 
-# 国际工程里的那些词
+# 国际工程语言应用备考
 
 ---
 
