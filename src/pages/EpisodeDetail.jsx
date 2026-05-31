@@ -56,7 +56,11 @@ export default function EpisodeDetail() {
           remarkPlugins={[remarkGfm]}
           components={{
             h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-900 mt-10 mb-5 leading-tight">{children}</h1>,
-            h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">{children}</h2>,
+            h2: ({ children }) => {
+              const text = typeof children === 'string' ? children : Array.isArray(children) ? children.map(c => typeof c === 'string' ? c : '').join('') : ''
+              const id = text.replace(/[^\w一-鿿]+/g, '').toLowerCase()
+              return <h2 id={id} className="text-2xl font-semibold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">{children}</h2>
+            },
             h3: ({ children }) => <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">{children}</h3>,
             p: ({ children }) => {
               const hasBlock = React.Children.toArray(children).some(
@@ -77,7 +81,12 @@ export default function EpisodeDetail() {
             ol: ({ children }) => <ol className="list-decimal list-outside mb-5 space-y-2 pl-6 text-gray-700">{children}</ol>,
             li: ({ children }) => <li className="text-gray-700 leading-relaxed text-lg">{children}</li>,
             hr: () => <hr className="border-gray-200 my-10" />,
-            a: ({ href, children }) => <a href={href} className="text-indigo-600 hover:text-indigo-800 underline underline-offset-2" target="_blank" rel="noopener noreferrer">{children}</a>,
+            a: ({ href, children }) => {
+              if (href && href.startsWith('#')) {
+                return <a href={href} className="text-indigo-600 hover:text-indigo-800 underline underline-offset-2">{children}</a>
+              }
+              return <a href={href} className="text-indigo-600 hover:text-indigo-800 underline underline-offset-2" target="_blank" rel="noopener noreferrer">{children}</a>
+            },
             table: ({ children }) => <div className="overflow-x-auto my-5"><table className="w-full border-collapse text-base">{children}</table></div>,
             th: ({ children }) => <th className="border border-gray-300 bg-gray-100 px-4 py-2 text-left text-gray-700 font-semibold">{children}</th>,
             td: ({ children }) => <td className="border border-gray-200 px-4 py-2 text-gray-700">{children}</td>,
